@@ -23,7 +23,7 @@ class CustomerCreateRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:customers,email',
             'phoneNumber' => 'required',
         ];
     }
@@ -34,6 +34,7 @@ class CustomerCreateRequest extends FormRequest
             'name.required' => 'Name is required',
             'email.required' => 'Email is required',
             'email.email' => 'Email should be valid',
+            'email.unique' => 'There is customer with that same email',
             'phoneNumber.required' => 'Phone number is required'
         ];
     }
